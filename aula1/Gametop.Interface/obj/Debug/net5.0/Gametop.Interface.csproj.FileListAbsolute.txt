@@ -1,0 +1,12 @@
+/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/bin/Debug/net5.0/Gametop.Interface.deps.json
+/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/bin/Debug/net5.0/Gametop.Interface.dll
+/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/bin/Debug/net5.0/ref/Gametop.Interface.dll
+/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/bin/Debug/net5.0/Gametop.Interface.pdb
+/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/obj/Debug/net5.0/Gametop.Interface.csprojAssemblyReference.cache
+/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/obj/Debug/net5.0/Gametop.Interface.GeneratedMSBuildEditorConfig.editorconfig
+/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/obj/Debug/net5.0/Gametop.Interface.AssemblyInfoInputs.cache
+/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/obj/Debug/net5.0/Gametop.Interface.AssemblyInfo.cs
+/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/obj/Debug/net5.0/Gametop.Interface.csproj.CoreCompileInputs.cache
+/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/obj/Debug/net5.0/Gametop.Interface.dll
+/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/obj/Debug/net5.0/ref/Gametop.Interface.dll
+/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/obj/Debug/net5.0/Gametop.Interface.pdb

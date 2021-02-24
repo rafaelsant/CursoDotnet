@@ -1,0 +1,110 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "Gametop.Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Gametop.Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Gametop.Interface.dll": {}
+        }
+      },
+      "GameTOP.Lib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Gametop.Interface": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GameTOP.Lib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GameTOP.Lib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Gametop.Interface/1.0.0": {
+      "type": "project",
+      "path": "../Gametop.Interface/Gametop.Interface.csproj",
+      "msbuildProject": "../Gametop.Interface/Gametop.Interface.csproj"
+    },
+    "GameTOP.Lib/1.0.0": {
+      "type": "project",
+      "path": "../GameTOP.Lib/GameTOP.Lib.csproj",
+      "msbuildProject": "../GameTOP.Lib/GameTOP.Lib.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "GameTOP.Lib >= 1.0.0",
+      "Gametop.Interface >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/home/rafael/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/rafael/Documents/DotNet/CursoUdemy/aula1/GameTOP/GameTOP.csproj",
+      "projectName": "GameTOP",
+      "projectPath": "/home/rafael/Documents/DotNet/CursoUdemy/aula1/GameTOP/GameTOP.csproj",
+      "packagesPath": "/home/rafael/.nuget/packages/",
+      "outputPath": "/home/rafael/Documents/DotNet/CursoUdemy/aula1/GameTOP/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/rafael/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "/home/rafael/Documents/DotNet/CursoUdemy/aula1/GameTOP.Lib/GameTOP.Lib.csproj": {
+              "projectPath": "/home/rafael/Documents/DotNet/CursoUdemy/aula1/GameTOP.Lib/GameTOP.Lib.csproj"
+            },
+            "/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/Gametop.Interface.csproj": {
+              "projectPath": "/home/rafael/Documents/DotNet/CursoUdemy/aula1/Gametop.Interface/Gametop.Interface.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
