@@ -1,0 +1,17 @@
+<div class="container m-10">
+  <div class="card" style="width: 18rem;">
+    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card-body">
+      <h5 class="card-title">{{tema}}</h5>
+      <p class="card-text">{{dataEvento}}<br>{{local}}<br>{{tema}}<br>{{lote}}</p>
+      <button class="m-1 btn btn-danger" (click)="deleteEvento(eventoId)" >
+        <fa-icon [icon]="faTrash"></fa-icon>
+        Delete
+      </button>
+      <a href="#" class="m-1 btn btn-primary">
+        <fa-icon [icon]="faEdit"></fa-icon>
+        Edit
+      </a>
+    </div>
+  </div>
+</div>

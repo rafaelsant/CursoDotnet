@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm p-2" *ngFor="let evento of eventos">
+      <div class="align-items-center d-flex justify-content-between p-10">
+        <app-evento-card [eventoId]="evento.eventoId"
+          [local]="evento.local"
+          [dataEvento]="evento.dataEvento"
+          [tema]="evento.tema"
+          [qtdPessoas]="evento.qtdPessoas"
+          [lote]="evento.lote"
+        ></app-evento-card>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

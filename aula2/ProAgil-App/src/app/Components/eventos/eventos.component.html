@@ -1,0 +1,24 @@
+<div class="container align-middle">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id:</th>
+        <th>Local:</th>
+        <th>Data:</th>
+        <th>Tema:</th>
+        <th>Convidados:</th>
+        <th>lote:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let evento of eventos">
+        <td>{{evento.eventoId}}</td>
+        <td>{{evento.local}}</td>
+        <td>{{evento.dataEvento}}</td>
+        <td>{{evento.tema}}</td>
+        <td>{{evento.qtdPessoas}}</td>
+        <td>{{evento.lote}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
