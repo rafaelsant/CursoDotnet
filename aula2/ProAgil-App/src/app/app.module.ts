@@ -8,6 +8,7 @@ import { EventosComponent } from './Components/eventos/eventos.component';
 import { EventoCardComponent } from './Components/evento-card/evento-card.component';
 import { CardListComponent } from './Components/card-list/card-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -71,6 +71,7 @@ namespace ProAgil.API.Controllers
           results.Lote = evento.Lote;
           results.QtdPessoas = evento.QtdPessoas;
           results.Tema = evento.Tema;
+          results.ImagemUrl = evento.ImagemUrl;
           _context.Entry(results).State = EntityState.Modified;
           try
           {

@@ -4,5 +4,6 @@ export interface Eventos {
     dataEvento: Date,
     tema: string,
     qtdPessoas: number,
-    lote: string
+    lote: string,
+    imagemUrl:string
 }

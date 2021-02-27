@@ -1,24 +1,58 @@
-<div class="container align-middle">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Id:</th>
-        <th>Local:</th>
-        <th>Data:</th>
-        <th>Tema:</th>
-        <th>Convidados:</th>
-        <th>lote:</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let evento of eventos">
-        <td>{{evento.eventoId}}</td>
-        <td>{{evento.local}}</td>
-        <td>{{evento.dataEvento}}</td>
-        <td>{{evento.tema}}</td>
-        <td>{{evento.qtdPessoas}}</td>
-        <td>{{evento.lote}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="form-inline">
+  <div class="form-group mb2 m-2">
+    <input type="text"
+    class="form-control mr-2"
+    placeholder="buscar"
+    [(ngModel)]="filtroLista"
+    >
+  </div>
 </div>
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th>#</th>
+      <th>
+        <button class="btn btn-outline-primary" (click)="esconderImagem()">
+          Mostrar imagem
+        </button>
+      </th>
+      <th>Tema</th>
+      <th>Local</th>
+      <th>Data</th>
+      <th>Lotação</th>
+      <th>Lote</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="eventos && eventos.length">
+    <tr *ngFor="let evento of eventosFiltrados">
+      <td>{{evento.eventoId}}</td>
+      <td>
+        <img *ngIf="mostrarImagem"
+        [style.width.px]="imagemLargura"
+        [style.margin.px]="imagemMargem"
+        src="http://localhost:5000/img/{{evento.imagemUrl}}">
+      </td>
+      <td>{{evento.tema}}</td>
+      <td>{{evento.local}}</td>
+      <td>{{evento.dataEvento}}</td>
+      <td>{{evento.qtdPessoas}}</td>
+      <td>{{evento.lote | uppercase}}</td>
+      <td>
+        <button class="btn btn-success">
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </button>
+        <button class="btn btn-danger ml-2">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="!eventos.length">
+    <tr>
+      <td colspan="7" class="text-center">
+        <h3>Nenhum evento encontrado!</h3>
+      </td>
+    </tr>
+  </tfoot>
+</table>
