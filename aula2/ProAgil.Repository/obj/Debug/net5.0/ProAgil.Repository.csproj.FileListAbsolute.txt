@@ -13,3 +13,6 @@ C:\Users\Rafael\Documents\estudos\CursoDotnet\aula2\ProAgil.Repository\obj\Debug
 C:\Users\Rafael\Documents\estudos\CursoDotnet\aula2\ProAgil.Repository\obj\Debug\net5.0\ProAgil.Repository.dll
 C:\Users\Rafael\Documents\estudos\CursoDotnet\aula2\ProAgil.Repository\obj\Debug\net5.0\ref\ProAgil.Repository.dll
 C:\Users\Rafael\Documents\estudos\CursoDotnet\aula2\ProAgil.Repository\obj\Debug\net5.0\ProAgil.Repository.pdb
+C:\Users\Rafael\Documents\estudos\CursoDotnet\aula2\ProAgil.Repository\bin\Debug\net5.0\ProAgil.Repository.runtimeconfig.json
+C:\Users\Rafael\Documents\estudos\CursoDotnet\aula2\ProAgil.Repository\bin\Debug\net5.0\ProAgil.Repository.runtimeconfig.dev.json
+C:\Users\Rafael\Documents\estudos\CursoDotnet\aula2\ProAgil.Repository\obj\Debug\net5.0\ProAgil.Repository.genruntimeconfig.cache

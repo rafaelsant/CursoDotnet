@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using ProAgil.API.Data;
 using ProAgil.Domain.Model;
+using ProAgil.Repository.Data;
 
 namespace ProAgil.API.Controllers
 {
@@ -15,8 +15,8 @@ namespace ProAgil.API.Controllers
     [Route("api/[controller]")]
     public class EventosController : ControllerBase
     {
-        public DataContext _context { get; }
-        public EventosController(DataContext context)
+        public ProAgilContext _context { get; }
+        public EventosController(ProAgilContext context)
         {
             _context = context;
 
@@ -41,7 +41,7 @@ namespace ProAgil.API.Controllers
 
             try
             {
-                var results = await _context.Eventos.FirstOrDefaultAsync(x => x.EventoId == id);
+                var results = await _context.Eventos.FirstOrDefaultAsync(x => x.Id == id);
                 return Ok(results);
             }
             catch (System.Exception)
@@ -56,7 +56,7 @@ namespace ProAgil.API.Controllers
           {
             _context.Eventos.Add(evento);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(Get), new { id = evento.EventoId }, evento);
+            return CreatedAtAction(nameof(Get), new { id = evento.Id }, evento);
           }
           catch(System.Exception)
           {
@@ -65,14 +65,9 @@ namespace ProAgil.API.Controllers
         }
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEvento(int id, Evento evento){
-          var results = await _context.Eventos.FirstOrDefaultAsync(x => x.EventoId == id);
-          results.Local = evento.Local;
-          results.DataEvento = evento.DataEvento;
-          results.Lote = evento.Lote;
-          results.QtdPessoas = evento.QtdPessoas;
-          results.Tema = evento.Tema;
-          results.ImagemUrl = evento.ImagemUrl;
-          _context.Entry(results).State = EntityState.Modified;
+          var results = await _context.Eventos.FirstOrDefaultAsync(x => x.Id == id);
+          evento.Id = results.Id;
+          _context.Entry(evento).State = EntityState.Modified;
           try
           {
               await _context.SaveChangesAsync();
@@ -95,7 +90,7 @@ namespace ProAgil.API.Controllers
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteEvento(int id)
     {
-        var evento = await _context.Eventos.FirstOrDefaultAsync(x => x.EventoId == id);
+        var evento = await _context.Eventos.FirstOrDefaultAsync(x => x.Id == id);
 
 
         if (evento == null)
@@ -109,6 +104,6 @@ namespace ProAgil.API.Controllers
         return NoContent();
     }
         private bool EventoExiste(long id) =>
-          _context.Eventos.Any(e => e.EventoId == id);
+          _context.Eventos.Any(e => e.Id == id);
     }
 }
