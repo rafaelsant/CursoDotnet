@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using ProAgil.API.Data;
-using ProAgil.API.Model;
+using ProAgil.Domain.Model;
 
 namespace ProAgil.API.Controllers
 {
