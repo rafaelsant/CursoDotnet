@@ -9,7 +9,7 @@ using ProAgil.Repository.Data;
 namespace ProAgil.Repository.Migrations
 {
     [DbContext(typeof(ProAgilContext))]
-    [Migration("20210227224313_init")]
+    [Migration("20210228001928_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -169,7 +169,7 @@ namespace ProAgil.Repository.Migrations
                         .IsRequired();
 
                     b.HasOne("ProAgil.Domain.Model.Palestrante", "Palestrante")
-                        .WithMany()
+                        .WithMany("PalestrantesEventos")
                         .HasForeignKey("PalestranteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -205,6 +205,8 @@ namespace ProAgil.Repository.Migrations
 
             modelBuilder.Entity("ProAgil.Domain.Model.Palestrante", b =>
                 {
+                    b.Navigation("PalestrantesEventos");
+
                     b.Navigation("RedesSociais");
                 });
 #pragma warning restore 612, 618

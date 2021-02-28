@@ -167,7 +167,7 @@ namespace ProAgil.Repository.Migrations
                         .IsRequired();
 
                     b.HasOne("ProAgil.Domain.Model.Palestrante", "Palestrante")
-                        .WithMany()
+                        .WithMany("PalestrantesEventos")
                         .HasForeignKey("PalestranteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -203,6 +203,8 @@ namespace ProAgil.Repository.Migrations
 
             modelBuilder.Entity("ProAgil.Domain.Model.Palestrante", b =>
                 {
+                    b.Navigation("PalestrantesEventos");
+
                     b.Navigation("RedesSociais");
                 });
 #pragma warning restore 612, 618
