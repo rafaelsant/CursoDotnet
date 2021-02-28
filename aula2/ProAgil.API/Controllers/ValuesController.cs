@@ -13,10 +13,10 @@ namespace ProAgil.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EventosController : ControllerBase
+    public class ValuesController : ControllerBase
     {
         public ProAgilContext _context { get; }
-        public EventosController(ProAgilContext context)
+        public ValuesController(ProAgilContext context)
         {
             _context = context;
 

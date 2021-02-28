@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using ProAgil.Repository;
 using ProAgil.Repository.Data;
 
 namespace ProAgil.API
@@ -24,6 +25,7 @@ namespace ProAgil.API
         {
             services.AddDbContext<ProAgilContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnections")));
             services.AddControllers();
+            services.AddScoped<IProAgilRepository,ProAgilRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProAgil.API", Version = "v1" });
