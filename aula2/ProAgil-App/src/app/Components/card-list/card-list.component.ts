@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EventosService } from 'src/app/Eventos.service';
-import { Eventos } from 'src/assets/Eventos';
+import { EventosService } from 'src/app/Services/Eventos.service';
+import { Eventos } from 'src/assets/Models/Eventos';
 
 @Component({
   selector: 'app-card-list',
@@ -9,15 +9,15 @@ import { Eventos } from 'src/assets/Eventos';
 })
 export class CardListComponent implements OnInit {
   eventos!: Eventos[];
-  constructor(private service:EventosService) { }
+  constructor(private service: EventosService) { }
 
-  ngOnInit() {
+  ngOnInit(): any {
     this.getEventos();
   }
-  getEventos(){
-    this.service.getEventos().subscribe(res=>{
+  getEventos(): any{
+    this.service.getEventos().subscribe(res => {
       this.eventos = res;
-    },error=>console.log(error));
+    }, error => console.log(error));
 
   }
 

@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { faEdit } from '@fortawesome/free-regular-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Eventos } from 'src/assets/Eventos';
-import { EventosService } from '../../Eventos.service';
+import { Eventos } from 'src/assets/Models/Eventos';
+import { EventosService } from '../../Services/Eventos.service';
 
 @Component({
   selector: 'app-eventos',
@@ -14,34 +14,37 @@ export class EventosComponent implements OnInit {
   faTrash = faTrash;
   faEdit = faEdit;
   imagemLargura = 50;
-  imagemMargem=2;
-  mostrarImagem:boolean = true;
+  imagemMargem = 2;
+  mostrarImagem = true;
 
-  private _filtroLista:string='';
-  public get filtroLista():string{
+  // tslint:disable-next-line: variable-name
+  private _filtroLista = '';
+  public get filtroLista(): string{
     return this._filtroLista;
   }
-  public set filtroLista(value:string){
+  public set filtroLista(value: string){
     this._filtroLista = value;
     this.eventosFiltrados = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.eventos;
   }
 
-  eventosFiltrados:any=[];
+  eventosFiltrados: any = [];
   eventos: Eventos[] = [];
-  constructor(private service:EventosService) { }
 
-  ngOnInit() {
+  constructor(private service: EventosService) { }
+
+  ngOnInit(): any {
     this.getEventos();
   }
-  esconderImagem(){
-    this.mostrarImagem = !this.mostrarImagem
+
+  esconderImagem(): any{
+    this.mostrarImagem = !this.mostrarImagem;
   }
-  getEventos(){
-    this.service.getEventos().subscribe(res=>{
+  getEventos(): any{
+    this.service.getEventos().subscribe(res => {
       this.eventos = res;
-    },error=>console.log(error));
+    }, error => console.log(error));
   }
-  filtrarEventos(filtrarPor:string):any{
+  filtrarEventos(filtrarPor: string): any{
     filtrarPor = filtrarPor.toLocaleLowerCase();
     return this.eventos.filter(
       evento => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1

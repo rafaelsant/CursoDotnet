@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FontawesomeObject } from '@fortawesome/fontawesome-svg-core';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { EventosService } from 'src/app/Eventos.service';
+import { EventosService } from 'src/app/Services/Eventos.service';
 
 @Component({
   selector: 'app-evento-card',
@@ -16,15 +16,15 @@ export class EventoCardComponent implements OnInit {
   @Input() tema!: string;
   @Input() qtdPessoas!: number;
   @Input() lote!: string;
-  constructor(private service:EventosService) { }
+  constructor(private service: EventosService) { }
   faTrash = faTrash;
   faEdit = faEdit;
-  ngOnInit() {
+  ngOnInit(): any {
   }
-  deleteEvento(id:number){
-    this.service.deleteEvento(id).subscribe(()=>{
-      alert('Evento Deletado com sucesso')
-      window.location.reload()
+  deleteEvento(id: number): any{
+    this.service.deleteEvento(id).subscribe(() => {
+      alert('Evento Deletado com sucesso');
+      window.location.reload();
     });
   }
 }
