@@ -12,7 +12,7 @@ export class EventosService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 constructor(private http: HttpClient) {
-  this.url = 'http://localhost:5000/api/Eventos';
+  this.url = 'http://localhost:5000/api/evento';
  }
  getEventos(): Observable<Eventos[]>{
    return this.http.get<Eventos[]>(this.url);

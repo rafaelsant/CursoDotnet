@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { faEdit } from '@fortawesome/free-regular-svg-icons';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { faEdit, faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Eventos } from 'src/assets/Models/Eventos';
 import { EventosService } from '../../Services/Eventos.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-eventos',
@@ -13,9 +14,15 @@ import { EventosService } from '../../Services/Eventos.service';
 export class EventosComponent implements OnInit {
   faTrash = faTrash;
   faEdit = faEdit;
+  faEyeSlash = faEyeSlash;
+  faEye = faEye;
   imagemLargura = 50;
   imagemMargem = 2;
   mostrarImagem = true;
+  eventosFiltrados: any = [];
+  eventos: Eventos[] = [];
+
+  modalRef!: BsModalRef;
 
   // tslint:disable-next-line: variable-name
   private _filtroLista = '';
@@ -27,15 +34,17 @@ export class EventosComponent implements OnInit {
     this.eventosFiltrados = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.eventos;
   }
 
-  eventosFiltrados: any = [];
-  eventos: Eventos[] = [];
-
-  constructor(private service: EventosService) { }
+  constructor(
+    private service: EventosService,
+    private modalService: BsModalService){ }
 
   ngOnInit(): any {
     this.getEventos();
   }
 
+  openModal(template: TemplateRef<any>): any {
+    this.modalRef = this.modalService.show(template);
+  }
   esconderImagem(): any{
     this.mostrarImagem = !this.mostrarImagem;
   }
