@@ -5,6 +5,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Eventos } from 'src/assets/Models/Eventos';
 import { EventosService } from '../../Services/Eventos.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { FormBuilder, FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-eventos',
@@ -21,6 +22,7 @@ export class EventosComponent implements OnInit {
   mostrarImagem = true;
   eventosFiltrados: any = [];
   eventos: Eventos[] = [];
+  registerForm!: FormGroup;
 
   modalRef!: BsModalRef;
 
@@ -36,27 +38,51 @@ export class EventosComponent implements OnInit {
 
   constructor(
     private service: EventosService,
-    private modalService: BsModalService){ }
+    private modalService: BsModalService,
+    private formBuilder: FormBuilder
+    ){ }
 
-  ngOnInit(): any {
-    this.getEventos();
-  }
+    ngOnInit(): any {
+      this.validation();
+      this.getEventos();
+    }
+    validation(): any{
+      this.registerForm = this.formBuilder.group({
+        local: ['', [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(50)]],
+        dataEvento: ['', Validators.required],
+        tema: ['', Validators.required],
+        qtdPessoas: ['',
+        [Validators.required,
+        Validators.max(120000)]],
+        imagemUrl: ['', Validators.required],
+        telefone: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]]
+      });
+    }
+    get f(): any{
+      return this.registerForm.controls;
+    }
+    salvarAlteracao(){
 
-  openModal(template: TemplateRef<any>): any {
-    this.modalRef = this.modalService.show(template);
-  }
-  esconderImagem(): any{
-    this.mostrarImagem = !this.mostrarImagem;
-  }
-  getEventos(): any{
-    this.service.getEventos().subscribe(res => {
-      this.eventos = res;
-    }, error => console.log(error));
-  }
-  filtrarEventos(filtrarPor: string): any{
-    filtrarPor = filtrarPor.toLocaleLowerCase();
-    return this.eventos.filter(
-      evento => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1
-    );
-  }
-}
+    }
+    openModal(template: TemplateRef<any>): any {
+      this.modalRef = this.modalService.show(template);
+    }
+    esconderImagem(): any{
+      this.mostrarImagem = !this.mostrarImagem;
+    }
+    getEventos(): any{
+      this.service.getEventos().subscribe(res => {
+        this.eventos = res;
+      }, error => console.log(error));
+    }
+    filtrarEventos(filtrarPor: string): any{
+      filtrarPor = filtrarPor.toLocaleLowerCase();
+      return this.eventos.filter(
+        evento => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1
+        );
+      }
+    }
