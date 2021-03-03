@@ -126,6 +126,8 @@
     <div class="form-group col-md-4">
       <label>Data e Hora</label>
       <input type="text"
+      bsDatepicker
+      [bsConfig]="{ dateInputFormat : 'DD/MM/YYYY hh:mm a' }"
       class="form-control is-invalid"
       [ngClass]="{ 'is-invalid': registerForm.controls['dataEvento'].hasError('required') &&
       registerForm.controls['dataEvento'].touched
