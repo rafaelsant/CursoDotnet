@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { faEdit, faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Eventos } from 'src/assets/Models/Eventos';
 import { EventosService } from '../../Services/Eventos.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -21,6 +21,7 @@ export class EventosComponent implements OnInit {
   faEdit = faEdit;
   faEyeSlash = faEyeSlash;
   faEye = faEye;
+  faPlus = faPlus;
   imagemLargura = 50;
   imagemMargem = 2;
   mostrarImagem = true;
@@ -42,7 +43,6 @@ export class EventosComponent implements OnInit {
 
   constructor(
     private service: EventosService,
-    private modalService: BsModalService,
     private formBuilder: FormBuilder,
     private localeService: BsLocaleService
     ){
@@ -75,8 +75,8 @@ export class EventosComponent implements OnInit {
     salvarAlteracao(){
 
     }
-    openModal(template: TemplateRef<any>): any {
-      this.modalRef = this.modalService.show(template);
+    openModal(template: any): any {
+        template.show();
     }
     esconderImagem(): any{
       this.mostrarImagem = !this.mostrarImagem;
